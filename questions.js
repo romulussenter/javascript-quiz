@@ -1,6 +1,6 @@
 
 
-function Question(text, choices, answer) {
+function Questions(text, choices, answer) {
     this.text=text;
     this.choices=choices;
     this.answer = answer;
@@ -8,7 +8,7 @@ function Question(text, choices, answer) {
 
 }
 
-Question.prototype.correctAnswer = function(choices){
+Questions.prototype.correctAnswer = function(choices){
     return choice === this.answer;
     
 }
