@@ -14,6 +14,8 @@ function populate(){
             element.innerHTML = choices[i];
             guess("btn" + i, choices [i]);
         }
+
+        showProgress();
     
     }
 };
@@ -24,6 +26,13 @@ function guess(id, guess) {
          quiz.guess(guess);
          populate(); 
         }
+};
+
+function showProgress(){
+    var currentQuestionNumber = quiz.questionIndex + 1;
+    var element =document.getElementById("progress");
+    element.innerHTML = "Question" + currentQuestionNumber + "of" + quiz.questions.length;
+
 }
 
 function showScores() {
@@ -33,13 +42,13 @@ function showScores() {
     element.innerHTML = gameOverHTML;
 
      
-}
+};
 
 var questions = [
-    new Question('What is more awesome Jedi or Seth?',['Jedi','Dont care','Both','Sith'],'Sith'),
-    new Question('What planet are you from?'['Eath','Mars', 'I have no clue', 'Venous'],'Mars'),
-    new Question('What color is the sky'['Red','Green','Blue','White'],'Red'),
-    new Question('How cool am I?'['Not that cool', 'Pretty awesome','Alright', 'Who are you?'],'Pretty awesome'),
+    new Question('What is more awesome Jedi or Sith?',['Jedi','Dont care','Both','Sith'],'Sith'),
+    new Question('What planet are you from?',['Earth','Mars', 'I have no clue', 'Venus'],'Mars'),
+    new Question('What color is the sky?',['Red','Green','Blue','White'],'Red'),
+    new Question('How cool am I?',['Not that cool', 'Pretty awesome','Alright', 'Who are you?'],'Pretty awesome'),
 ];
 
 var quiz = new Quiz(questions);
